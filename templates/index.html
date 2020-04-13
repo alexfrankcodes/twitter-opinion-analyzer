@@ -1,0 +1,63 @@
+{% extends 'base.html' %} 
+
+{% block head %}
+{% endblock %} 
+
+
+{% block body %}
+<div class=container>
+
+  <h1> Current Twitter Opinion </h1>
+
+  <p class="expo"> This application uses <a href="https://en.wikipedia.org/wiki/Sentiment_analysis">Sentiment Analysis</a>
+  to estimate the overall polarity of tweets that include a certain topic.</p>
+
+  <form method="POST"> 
+    <p> <b>Please enter a topic:</b> </p> 
+    <input type="text" name="topic" placeholder="Enter a topic..." required>
+    <input id="submit" type="submit">
+  </form>
+
+  <p> 
+    {% if aggregate_polarity is eq(0) %}
+      <!-- User hasn't entered a topic yet -->
+    {% else %}
+      <p>
+        Based on these 100 tweets, the words assosciated with this topic are generally
+        {% if aggregate_polarity is gt(0) %}
+            <span class="positive">positive.</span>
+        {% else %}
+            <span class="negative">negative.</span>
+        {% endif %}
+      </p>
+      <p><i>Polarity:</i> {{ aggregate_polarity }} </p>
+    {% endif %}  
+  </p>
+
+  <ul>
+    <hr />
+    {% for tweet in public_tweets %}
+        <li class="tweet">
+        
+          <div class="tweet-header">
+            <img class="profile-img" src="{{tweet.user.profile_image_url_https }}" />
+            <a href="https://twitter.com/{{ tweet.user.screen_name }}">@{{tweet.user.screen_name}}</a>
+          </div>
+
+          <!-- Kind of a hacky way to remove characters 'RT' from the beginning of retweets -->
+          {% if tweet.text[:3] is eq("RT ") %}
+            <p>{{ tweet.text[2:] }}</p> 
+          {% else %}
+            <p>{{ tweet.text }}</p>   
+          {% endif %}
+
+        </li>
+
+        <!-- Add divider at end of each tweet -->
+        <hr />
+    {% endfor %}
+    </ul>
+
+</div>
+{% endblock %}
+
