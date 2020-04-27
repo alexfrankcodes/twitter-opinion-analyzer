@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 import tweepy
 from textblob import TextBlob
-import config
+import os
 import re
 
 app = Flask(__name__)
@@ -10,8 +10,8 @@ app = Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
 # Tweepy setup
-auth = tweepy.OAuthHandler(config.api_key, config.api_secret)
-auth.set_access_token(config.access_token, config.token_secret)
+auth = tweepy.OAuthHandler(os.environ.get('API_KEY'), os.environ.get('API_SECRET'))
+auth.set_access_token(os.environ.get('ACCESS_TOKEN'), os.environ.get('TOKEN_SECRET'))
 
 api = tweepy.API(auth)
 
