@@ -5,7 +5,8 @@ A python web app that lets a user enter a topic and get the current polarity on 
 
 ### 1. Clone repository
 
-```git clone https://github.com/alexfrankcodes/twitter-opinion-analyzer.git
+```
+git clone https://github.com/alexfrankcodes/twitter-opinion-analyzer.git
 ```
 
 ### 2. Open project and change into local env
