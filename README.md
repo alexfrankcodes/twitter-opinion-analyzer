@@ -30,6 +30,11 @@ __Note__: executing `flask run` at this stage will open the app, but you will en
 * 0.0.1
     * Work in progress
 
+## Next Steps
+I'm currently considering alternate ways of calculating and displaying polarity. I'm mainly interested in trying to categorize how strong an opinion is and communicating that to the user, formatted in a way such as the following:
+
+`"The opinion on this topic is [ barely/slightly/moderately/strongly ] [ positive/negative ]."`
+
 ## Meta
 
 Alexander Frank – [@alexfrankcodes](https://twitter.com/alexfrankcodes) – alexfrankcodes@gmail.com
