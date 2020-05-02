@@ -23,7 +23,7 @@
       <!-- User hasn't entered a topic yet -->
     {% else %}
       <p>
-        Based on these 100 tweets, the words assosciated with this topic are generally
+        Based on these 100 tweets, the words associated with the topic <span class="bold">"{{ topic }}"</span> are generally
         {% if aggregate_polarity is gt(0) %}
             <span class="positive">positive.</span>
         {% else %}

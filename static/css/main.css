@@ -39,6 +39,10 @@ input {
   color: red;
 }
 
+.bold {
+  font-weight: bold;
+}
+
 .tweet {
   margin-bottom: 12px;
 }

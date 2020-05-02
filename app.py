@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 import tweepy
 from textblob import TextBlob
+import config
 import os
 import re
 
@@ -20,6 +21,7 @@ api = tweepy.API(auth)
 def index():
     public_tweets = []
     aggregate_polarity = 0
+    topic = ""
 
     if request.method == 'POST':
         topic = request.form.get('topic')
@@ -31,7 +33,7 @@ def index():
 
     # Round aggregate polarity to two decimal places
     aggregate_polarity = round(aggregate_polarity, 2)
-    return render_template('index.html', public_tweets=public_tweets, aggregate_polarity=aggregate_polarity)
+    return render_template('index.html', topic=topic, public_tweets=public_tweets, aggregate_polarity=aggregate_polarity)
 
 
 if __name__ == "__main__":
