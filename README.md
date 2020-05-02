@@ -1,6 +1,15 @@
 # Twitter Opinion Analyzer
 A python web app that lets a user enter a topic and get the current polarity on that topic through sentiment analysis on recent tweets.
 
+## Examples
+Here are two examples of the app in action, using the words "Love" (which has a overwhelmingly positive polarity) and "Hate" (which has an overwhelmingly negative polarity).
+
+### Performing a search using the term "Love"
+<img src="images/pos_example.png" width="300px">
+
+### Performing a search using the term "Hate"
+<img src="images/neg_example.png" width="300px">
+
 ## Setup
 
 ### 1. Clone repository
